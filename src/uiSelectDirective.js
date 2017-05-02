@@ -204,6 +204,30 @@ uis.directive('uiSelect',
             throw uiSelectMinErr('transcluded', "Expected 1 .ui-select-choices but got '{0}'.", transcludedChoices.length);
           }
           element.querySelectorAll('.ui-select-choices').replaceWith(transcludedChoices);
+          var transcludedNoChoice = transcluded.querySelectorAll('.ui-select-no-choice');
+          transcludedNoChoice.removeAttr('ui-select-no-choice'); //To avoid loop in case directive as attr
+          transcludedNoChoice.removeAttr('data-ui-select-no-choice'); // Properly handle HTML5 data-attributes
+          if (transcludedNoChoice.length == 1) {
+            element.querySelectorAll('.ui-select-no-choice').replaceWith(transcludedNoChoice);
+          }
+
+          var transcludedHeader = transcluded.querySelectorAll('.ui-select-header');
+          transcludedHeader.removeAttr('ui-select-header'); // To avoid loop in case directive as attr
+          transcludedHeader.removeAttr('data-ui-select-header'); // Properly handle HTML5 data-attributes
+          if (transcludedHeader.length == 1) {
+            element.querySelectorAll('.ui-select-header').replaceWith(transcludedHeader);
+          } else {
+            element.querySelectorAll('.ui-select-header').remove();
+          }
+
+          var transcludedFooter = transcluded.querySelectorAll('.ui-select-footer');
+          transcludedFooter.removeAttr('ui-select-footer'); // To avoid loop in case directive as attr
+          transcludedFooter.removeAttr('data-ui-select-footer'); // Properly handle HTML5 data-attributes
+          if (transcludedFooter.length == 1) {
+            element.querySelectorAll('.ui-select-footer').replaceWith(transcludedFooter);
+          } else {
+            element.querySelectorAll('.ui-select-footer').remove();
+          }
         });
 
         // Support for appending the select field to the body when its open
