@@ -5,8 +5,8 @@
     <span class="ui-select-match"></span>
     <li class="select2-search-field">
       <input
-        type="text"
-        autocomplete="false"
+        type="search"
+        autocomplete="off"
         autocorrect="off"
         autocapitalize="off"
         spellcheck="false"
@@ -26,7 +26,9 @@
     </li>
   </ul>
   <div class="ui-select-dropdown select2-drop select2-with-searchbox select2-drop-active"
-       ng-class="{'select2-display-none': !$select.open}">
+       ng-class="{'select2-display-none': !$select.open || $select.items.length === 0}">
+    <div class="ui-select-header"></div>
     <div class="ui-select-choices"></div>
+    <div class="ui-select-footer"></div>
   </div>
 </div>

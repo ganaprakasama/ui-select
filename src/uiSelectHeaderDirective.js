@@ -12,4 +12,8 @@ uis.directive('uiSelectHeader', function(uiSelectConfig){
     transclude: true,
     replace: true
   };
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 3f097e0a717e40e6fc931b7655afcc8a3c575f91

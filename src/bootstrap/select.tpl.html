@@ -1,17 +1,28 @@
 <div class="ui-select-container ui-select-bootstrap dropdown" ng-class="{open: $select.open}">
   <div class="ui-select-match"></div>
-  <input type="text" autocomplete="false" tabindex="-1"
+  <span ng-show="$select.open && $select.refreshing  && $select.spinnerEnabled" class="ui-select-refreshing {{$select.spinnerClass}}"></span>
+  <input type="search" autocomplete="off" tabindex="-1"
          aria-expanded="true"
          aria-label="{{ $select.baseTitle }}"
          aria-owns="ui-select-choices-{{ $select.generatedId }}"
-         aria-activedescendant="ui-select-choices-row-{{ $select.generatedId }}-{{ $select.activeIndex }}"
          class="form-control ui-select-search"
+         ng-class="{ 'ui-select-search-hidden' : !$select.searchEnabled }"
          placeholder="{{$select.placeholder}}"
          ng-model="$select.search"
+<<<<<<< HEAD
          ng-show="$select.searchEnabled && $select.open">
    <div ng-show="$select.open && $select.items.length > 0" class="ui-select-dropdown dropdown-menu">
      <div class="ui-select-header"></div>
      <div class="ui-select-choices"></div>
      <div class="ui-select-footer"></div>
    </div>
+=======
+         ng-show="$select.open">
+  <div ng-show="$select.open && $select.items.length > 0" class="ui-select-dropdown dropdown-menu">
+    <div class="ui-select-header"></div>
+    <div class="ui-select-choices"></div>
+    <div class="ui-select-footer"></div>
+  </div>
+  <div class="ui-select-no-choice"></div>
+>>>>>>> 3f097e0a717e40e6fc931b7655afcc8a3c575f91
 </div>
